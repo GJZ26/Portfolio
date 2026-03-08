@@ -60,7 +60,7 @@ export default function CertificatesCard({
         {renderSkills()}
         <div className="issuer">
           <span>
-            {systemTranslations.month[certificate.date.month]}{" "}
+            {systemTranslations.months[certificate.date.month]}{" "}
             {certificate.date.year}
           </span>
           <span>{certificate.issuer}</span>

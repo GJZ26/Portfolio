@@ -23,7 +23,12 @@ export interface MonthYear {
 }
 
 export interface DateRange {
-  current: boolean;
+  current: false;
   init: MonthYear;
   end: MonthYear;
+}
+
+export interface UnfinishedDateRange {
+  current: true;
+  init: MonthYear;
 }

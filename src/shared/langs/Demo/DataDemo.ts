@@ -59,10 +59,6 @@ const experiences: ExperienceData = [
         month: "Jan",
         year: 2022,
       },
-      end: {
-        month: "Dec",
-        year: 2023,
-      },
       current: true, // Are you currently working here?
     },
     location: { // ? - Company location
@@ -129,7 +125,7 @@ const experiences: ExperienceData = [
 */
 const certificates: CertificateData = [
   {
-    title: "Specialization Program: Google Data Analysis", // Course or certification name
+    title: "Specialization Program: Google Data Analysis Master", // Course or certification name
     date: { // Certificate issue date
       month: "Aug",
       year: 2024,
@@ -164,7 +160,7 @@ const certificates: CertificateData = [
     uri: "https://cataas.com/cat/says/Your%20certificate%20should%20appear%20here?font=Comic%20Sans%20MS&fontSize=20&fontColor=%23000&fontBackground=%23fff&position=center",
     badge:
       "https://png.pngtree.com/png-clipart/20230527/original/pngtree-gold-luxury-certified-badge-with-red-ribbon-and-white-combination-color-png-image_9170717.png",
-    skills: ["Kubernetes", "Container Orchestration", "DevOps"],
+    skills: ["Kubernetes", "Container Orchestration", "DevOps", "Cloud", "Native"],
   },
 ];
 

@@ -1,5 +1,5 @@
 import { AvailableLangs } from "../config/LangsAvailables";
-import { DateRange, MonthYear } from "./TimeInterface";
+import { DateRange, MonthYear, UnfinishedDateRange } from "./TimeInterface";
 
 export type AboutData = string;
 export type ExperienceData = Array<Experience>;
@@ -12,7 +12,7 @@ export interface Experience {
   company: string;
   role: string;
   description: string;
-  duration: DateRange;
+  duration: DateRange | UnfinishedDateRange;
   location?: Location;
   mode?: modesAvailables;
   skills?: Array<string>;

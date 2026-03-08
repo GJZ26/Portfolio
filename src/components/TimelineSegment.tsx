@@ -13,25 +13,79 @@ export default function TimelineSegment({
 
   function renderDate() {
     const startMonth = config.experience.abreviate_month
-      ? systemTranslations.month[experience.duration.init.month].slice(0, 3)
-      : systemTranslations.month[experience.duration.init.month];
+      ? systemTranslations.months[experience.duration.init.month].slice(0, 3)
+      : systemTranslations.months[experience.duration.init.month];
     const startYear = experience.duration.init.year;
 
     const endDate = experience.duration.current
       ? systemTranslations.present
       : `${
           config.experience.abreviate_month
-            ? systemTranslations.month[experience.duration.end.month].slice(
+            ? systemTranslations.months[experience.duration.end.month].slice(
                 0,
-                3
+                3,
               )
-            : systemTranslations.month[experience.duration.end.month]
+            : systemTranslations.months[experience.duration.end.month]
         } ${experience.duration.end.year}`;
 
+    const montMap = {
+      Jan: 0,
+      Feb: 1,
+      Mar: 2,
+      Apr: 3,
+      May: 4,
+      Jun: 5,
+      Jul: 6,
+      Aug: 7,
+      Sep: 8,
+      Oct: 9,
+      Nov: 10,
+      Dec: 11,
+    };
+
+    const initDate = new Date(
+      experience.duration.init.year,
+      montMap[experience.duration.init.month],
+    );
+
+    let finishDate: Date;
+    if (experience.duration.current) {
+      finishDate = new Date();
+    } else {
+      finishDate = new Date(
+        experience.duration.end.year,
+        montMap[experience.duration.end.month],
+      );
+    }
+
+    const monthsDiff =
+      (finishDate.getFullYear() - initDate.getFullYear()) * 12 +
+      (finishDate.getMonth() - initDate.getMonth());
+
+    const years = Math.floor(monthsDiff / 12);
+    const months = monthsDiff % 12;
+
+    let pluralYears = systemTranslations.year.plural;
+    let pluralMonths = systemTranslations.month.plural;
+
+    let singularYears = systemTranslations.year.singular;
+    let singularMonths = systemTranslations.month.singular;
+
     return (
-      <span className="date">
-        {startMonth} {startYear} - {endDate}
-      </span>
+      <>
+        <span className="date">
+          {startMonth} {startYear} - {endDate}
+          {config.experience.showDurationText && (
+            <span className="duration">
+              {years > 0 &&
+                `${years} ${years > 1 ? pluralYears : singularYears}`}
+              {years > 0 && months > 0 && `, `}
+              {months > 0 &&
+                `${months} ${months > 1 ? pluralMonths : singularMonths}`}
+            </span>
+          )}
+        </span>
+      </>
     );
   }
 
@@ -85,10 +139,16 @@ export default function TimelineSegment({
           }
           return null;
         })}
+
         {config.experience.max_skills_listed < experience.skills.length && (
-          <div className="pills">
+          <abbr
+            title={experience.skills
+              .slice(config.experience.max_skills_listed)
+              .join(", ")}
+            className="pills"
+          >
             {experience.skills.length - config.experience.max_skills_listed}+
-          </div>
+          </abbr>
         )}
       </>
     );

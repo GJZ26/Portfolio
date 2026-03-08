@@ -33,6 +33,7 @@ export interface Config {
   experience: {
     max_skills_listed: number;
     abreviate_month: boolean;
+    showDurationText: boolean;
   };
   links: {
     showCV: boolean;

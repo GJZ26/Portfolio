@@ -39,6 +39,7 @@ export const defaultConfig: Config = {
   experience: {
     abreviate_month: true, // Render the full name of the months or just the first three letters of them
     max_skills_listed: 3, // Maximum number of skills to render
+    showDurationText: true, // Show the duration of each experience in text format (e.g. "2 years and 3 months")
   },
   links: {
     // Link section to your networks

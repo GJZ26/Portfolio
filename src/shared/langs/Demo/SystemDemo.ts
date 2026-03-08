@@ -18,7 +18,7 @@ export const SystemDemo: LanguageTranslation = {
   links: "Links",
   version: "Version",
   source: "Source",
-  month: {
+  months: {
     Jan: "January",
     Feb: "February",
     Mar: "March",
@@ -48,5 +48,13 @@ export const SystemDemo: LanguageTranslation = {
   download_cv_in: "Download CV in",
   alba_sky: "Light Blue",
   warm_ash: "Warm Ash",
-  crimson_nocturne: "Crimson Nocturne"
+  crimson_nocturne: "Crimson Nocturne",
+  year: {
+    singular: "year",
+    plural: "years",
+  },
+  month: {
+    singular: "month",
+    plural: "months",
+  }
 };

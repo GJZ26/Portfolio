@@ -11,7 +11,7 @@ export interface LanguageTranslation
   theme: string;
   version: string;
   source: string;
-  month: Record<MonthsAvailables, string>;
+  months: Record<MonthsAvailables, string>;
   title: string;
   present: string;
   empty_experience: string;
@@ -20,6 +20,14 @@ export interface LanguageTranslation
   empty_links: string;
   skills: string;
   download_cv_in: string;
+  year:{
+    singular: string;
+    plural: string;
+  }
+  month:{
+    singular: string;
+    plural: string;
+  }
 }
 
 export type AppTranslation = Record<AvailableLangs, LanguageTranslation>;
